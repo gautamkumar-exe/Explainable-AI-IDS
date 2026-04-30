@@ -1,53 +1,171 @@
-# SentraX: Explainable AI Intrusion Detection System (IDS)
+# 🚀 SentraX: Explainable AI Intrusion Detection System (IDS)
 
-SentraX is a production-grade, hyper-modern Security Operations Center (SOC) dashboard and Intrusion Detection System powered by Machine Learning and Explainable AI (XAI).
+---
+
+## 📌 Overview
+
+SentraX is a **production-grade, modern Security Operations Center (SOC) dashboard** and Intrusion Detection System powered by **Machine Learning** and **Explainable AI (XAI)**.
+
+It provides real-time intrusion detection with **transparent, interpretable insights**, helping analysts understand *why* a threat was detected.
 
 ![SentraX Dashboard](frontend/public/sentrax_logo.png)
 
-## Features
-- **Real-Time Network Telemetry:** Live simulation of packet feeds mapped from the NSL-KDD dataset.
-- **Explainable AI (SHAP):** Clear visibility into *why* the ML model flagged traffic as malicious, offering feature-by-feature impact breakdown.
-- **Dynamic Risk Engine:** Real-time calculation of threat levels and system vulnerability.
-- **Advanced Event Logging:** Persistent thread-safe logging of all network inferences, including IP, Port, Protocol, and exact Attack Categories (DoS, Probe, U2R, R2L).
-- **Manual Inference Engine:** A testing bay for security analysts to input custom payload metrics and test the ML model directly.
+---
 
-## Tech Stack
-- **Backend:** FastAPI, Python, Scikit-Learn, SHAP, Pandas.
-- **Frontend:** React, Vite, Recharts, Lucide-React.
-- **Model:** Random Forest Classifier (Trained on NSL-KDD).
+## ⚙️ Features
 
-## Getting Started
+* 🔍 **Real-Time Network Telemetry**
+  Live simulation of packet streams using the NSL-KDD dataset
 
-### 1. Prerequisites
-- Node.js (v16+)
-- Python (3.9+)
+* 🧠 **Explainable AI (SHAP)**
+  Feature-level explanation showing why traffic is classified as malicious
 
-### 2. Installation
-Install the required Python packages for the ML backend:
-```bash
-pip install -r requirements.txt
+* ⚡ **Dynamic Risk Engine**
+  Real-time threat scoring and system vulnerability assessment
+
+* 📊 **Advanced Event Logging**
+  Thread-safe logging of:
+
+  * IP Address
+  * Port
+  * Protocol
+  * Attack Type (DoS, Probe, U2R, R2L)
+
+* 🧪 **Manual Inference Engine**
+  Allows analysts to input custom values and test predictions
+
+* 🚀 **One-Command Startup**
+  Launch full system using:
+
+  ```bash
+  ./start.sh
+  ```
+
+---
+
+## 🧠 Architecture
+
+```text
+Frontend (React + Vite)
+        ↓
+FastAPI Backend (API Layer)
+        ↓
+ML Model (Random Forest)
+        ↓
+Prediction + SHAP Explainability
 ```
 
-Install the Node modules for the Vite frontend:
-```bash
-cd frontend
-npm install
+---
+
+## 🛠️ Tech Stack
+
+### Backend:
+
+* Python
+* FastAPI
+* Scikit-learn
+* SHAP
+* Pandas
+
+### Frontend:
+
+* React
+* Vite
+* Recharts
+* Lucide Icons
+
+### Model:
+
+* Random Forest Classifier
+* Trained on NSL-KDD dataset
+
+---
+
+## 📂 Project Structure
+
+```text
+SentraX_IDS/
+│
+├── frontend/                # React + Vite UI
+│   ├── src/
+│   ├── public/
+│   └── ...
+│
+├── model/                   # Backend + ML logic
+│   ├── api.py              # API routes
+│   ├── model.py            # Prediction + SHAP
+│   ├── train.py            # Model training
+│   ├── app.py              # Server entry point
+│   └── requirements.txt
+│
+├── start.sh                 # One-command startup
+└── README.md
 ```
 
-### 3. Running the Application
-A `start.sh` script is provided to easily boot both the backend and frontend simultaneously.
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Prerequisites
+
+* Node.js (v16+)
+* Python (3.9+)
+
+---
+
+### 2️⃣ Run the Project (Recommended)
 
 ```bash
-# Make sure the script is executable
 chmod +x start.sh
-
-# Run the project
 ./start.sh
 ```
-- **Backend API:** `http://localhost:8000`
-- **Frontend Dashboard:** `http://localhost:5173`
 
-## Architecture Overview
-- `api.py`: FastAPI backend that handles ML routing, the real-time simulation feed, and the live log store.
-- `model.py`: Model loader, prediction pipeline, and SHAP explainer integration.
-- `frontend/`: The React/Vite application featuring a dark-themed, premium UI designed for cybersecurity professionals.
+✔ This will:
+
+* Install dependencies
+* Train/load model
+* Start backend server
+* Launch frontend
+
+---
+
+### 🌐 Access the Application
+
+* **Frontend Dashboard:** http://localhost:5173
+* **Backend API:** http://localhost:8000
+
+---
+
+## 🔄 Workflow
+
+```text
+User Input → Frontend → API → Model → Prediction → SHAP Explanation → UI Display
+```
+
+---
+
+## 🧩 Core Components
+
+* **api.py**
+  Handles API requests, real-time simulation, and logging
+
+* **model.py**
+  Loads trained model, performs predictions, and generates SHAP explanations
+
+* **train.py**
+  Trains the ML model using NSL-KDD dataset
+
+* **frontend/**
+  Interactive SOC dashboard with real-time visuals
+
+---
+
+## 👨‍💻 Author
+
+**gautamkumar-exe**
+
+---
+
+## ⭐ Note
+
+SentraX is designed as a **deployable prototype IDS system** combining machine learning with explainable AI for transparent cybersecurity analysis.
